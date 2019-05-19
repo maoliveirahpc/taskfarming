@@ -1,0 +1,14 @@
+#!/bin/csh
+#PBS -A system
+#PBS -S /bin/csh
+#PBS -l walltime=00:10:00
+#PBS -l nodes=2:ppn=4
+
+module load comp/mpich2/pathscale3.0
+module load taskfarm 
+
+cd $PBS_O_WORKDIR
+
+which taskfarm
+
+mpipbsexec taskfarm ./tasks
